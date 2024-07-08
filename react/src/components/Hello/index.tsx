@@ -1,4 +1,4 @@
-const Hello = () =>{
+const Hello = () => {
 return( 
     <>
         <h1>hello davi</h1>    
