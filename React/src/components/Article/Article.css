@@ -1,0 +1,21 @@
+section{
+    display: flex;
+    gap: 1rem;
+}
+
+section > div > h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: orangered;
+    margin-bottom: 12px;
+}
+
+section > div > h3{
+    color: rgb(98, 98, 98);
+    margin-bottom: 1rem;
+}
+
+img.images-section{
+    width: 350px;
+    border-radius: 5px;
+}

@@ -1,7 +1,7 @@
 import logoimg from '../../assets/react.svg'
 import './style.css'
 
-const Navbar = () => {
+export const Navbar = () => {
     return(
         <>
       <header>
@@ -22,4 +22,3 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
