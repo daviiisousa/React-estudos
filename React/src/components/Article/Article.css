@@ -17,5 +17,7 @@ section > div > h3{
 
 img.images-section{
     width: 350px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 5px;
 }
