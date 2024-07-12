@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import styles from './Task.module.scss'
 
 interface Task{
@@ -20,12 +20,25 @@ export const Task = () =>{
             return
         }
 
-        setTask([
+        const newTask = [
             ...Task,
             { title: TaskTilte, id: new Date().getTime(), done: false}
-        ])
+        ]
+
+        setTask(newTask)
+
+        localStorage.setItem('tasks', JSON.stringify(newTask))
+
         setTaskTitle('')
     }
+  
+    useEffect(() =>{
+        const taskOnLocalStorage = localStorage.getItem('tasks')
+
+        if(taskOnLocalStorage){
+            setTask(JSON.parse(taskOnLocalStorage))
+        }
+    }, [])
 
     return(
         <>
