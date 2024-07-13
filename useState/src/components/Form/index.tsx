@@ -32,6 +32,8 @@ export const Form = () =>{
                     </form>
                     <p>{name}</p>
                 </section>
+
+                <h2>oi</h2>
             </main>
 
         </>
