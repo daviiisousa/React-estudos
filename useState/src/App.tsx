@@ -1,5 +1,5 @@
-
-import { Form } from './components/Form/form'
+import 'react-bootstrap'
+import { Form } from './components/Form'
 
 function App() {
   
