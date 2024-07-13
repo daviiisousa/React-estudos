@@ -18,23 +18,21 @@ export const Form = () =>{
         <header>
             <h1>Aprendendo o Hook UseState</h1>
         </header>
-            <section>
-
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="name">Nome:</label>
-
-                    <input
-                    onChange={(e) => setName(e.target.value)}//pega cada letra digitada
-                    type="text"
-                    id="name"
-                    name="name"
-                    />
-
-                    <button type="submit">Enviar</button>
-                </form>
-
-                <p>{name}</p>
-            </section>
+            <main>
+                <section>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="name">Nome:</label>
+                        <input
+                        onChange={(e) => setName(e.target.value)}//pega cada letra digitada
+                        type="text"
+                        id="name"
+                        name="name"
+                        />
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <p>{name}</p>
+                </section>
+            </main>
 
         </>
     )
