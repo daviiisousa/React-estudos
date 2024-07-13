@@ -1,30 +1,40 @@
 import { useState } from "react"
+import './form.module.scss'
 
 export const Form = () =>{
 
-    const[name, setName] = useState('')
-    console.log(name);
+    const[name, setName] = useState('')//altera o estado dos components
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("name:", name);
-        // Aqui você pode adicionar lógica para enviar o nome para um servidor, etc.
+    
+    const handleSubmit = (event:any) => { 
+        event.preventDefault();// impedeque minha pagina recarregue 
+        console.log(name);
+        
     };
-
+    
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Nome:</label>
-                <input 
-                onChange={(e) => setName(e.target.value)} 
-                type="text" 
-                id="name" 
-                name="name"
-                />
+        <header>
+            <h1>Aprendendo o Hook UseState</h1>
+        </header>
+            <section>
 
-                <button type="submit">Enviar</button>
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name">Nome:</label>
+
+                    <input
+                    onChange={(e) => setName(e.target.value)}//pega cada letra digitada
+                    type="text"
+                    id="name"
+                    name="name"
+                    />
+
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <p>{name}</p>
+            </section>
 
         </>
     )
