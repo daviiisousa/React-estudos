@@ -28,6 +28,12 @@ export const LoginButton = styled.button`
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: 0.5s;
+
+    &:hover{
+        background-color: #0E8388;
+        transition: 0.5s;
+    }
 `
 
 export const CarrinhoDeCompra = styled.button`
@@ -37,4 +43,10 @@ export const CarrinhoDeCompra = styled.button`
     background-color: #0E8388;
     border: none;
     color: white;
+    transition: 0.5s;
+
+    &:hover{
+        background-color: #2E4F4F;
+        transition: 0.5s;
+    }
 `
