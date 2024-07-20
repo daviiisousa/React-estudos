@@ -1,3 +1,4 @@
+import { ButaoApagar } from "../../components/ButaoApagar"
 import { ButaoPedido } from "../../components/ButaoPedido"
 import { ContentHeader } from "../../components/ContentHeader"
 import { Tabela } from "../../components/Tabela"
@@ -7,7 +8,7 @@ export const Users = () =>{
     return(
         <>
             <section>
-                <ContentHeader title="Remedios"/>
+                <ContentHeader title="Banco de Remedios 🧑‍⚕️"/>
                 <Tabela>
                 <thead>
                     <tr>
@@ -23,12 +24,18 @@ export const Users = () =>{
                      <TrParaBotao>
                         <ButaoPedido/>
                      </TrParaBotao>
+                     <TrParaBotao>
+                        <ButaoApagar />
+                     </TrParaBotao>
                     </tr>
                     <tr>
                      <td>Parecetamol</td>
                      <td>10</td>
                      <TrParaBotao>
                         <ButaoPedido />
+                     </TrParaBotao>
+                     <TrParaBotao>
+                        <ButaoApagar />
                      </TrParaBotao>
                     </tr>
                     </tbody>
