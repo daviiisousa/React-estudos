@@ -16,7 +16,7 @@ export const UseEfect = () =>{
             </header>
             <main>
                 <div>
-                    <button onClick={() => {setAlterado(!alterado)}}>{alterado ? 'Nao alterado' : 'alterado'}</button>
+                    <button onClick={() => {setAlterado(!alterado), alert('o useEffect foi chamado')}}>{alterado ? 'Nao alterado' : 'alterado'}</button>
                 </div>
             </main>
         </>
