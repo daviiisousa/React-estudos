@@ -49,7 +49,7 @@ export const Task = () =>{
                     <input
                     value={TaskTilte}
                     onChange={(event) => setTaskTitle(event.target.value)} 
-                    type="texi"  
+                    type="text"  
                     id='inputTarefa' 
                     placeholder='digite sua tarefa' />
                 </div>
@@ -58,7 +58,6 @@ export const Task = () =>{
              </form>
 
              <ul>
-
                 {Task.map(task =>{
                     return(
                     <li key={task.id}>
