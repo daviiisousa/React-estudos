@@ -1,5 +1,6 @@
-import { ButaoApagar } from "../../components/ButaoApagar"
-import { ButaoPedido } from "../../components/ButaoPedido"
+import { ButaoAdicionar } from "../../components/Butoes/ButaoAdicionar"
+import { ButaoApagar } from "../../components/Butoes/ButaoApagar"
+import { ButaoPedido } from "../../components/Butoes/ButaoPedido"
 import { ContentHeader } from "../../components/ContentHeader"
 import { Tabela } from "../../components/Tabela"
 import { TrParaBotao } from "../../components/TrParaBotao"
@@ -9,6 +10,7 @@ export const Users = () =>{
         <>
             <section>
                 <ContentHeader title="Banco de Remedios 🧑‍⚕️"/>
+                <ButaoAdicionar />
                 <Tabela>
                 <thead>
                     <tr>
