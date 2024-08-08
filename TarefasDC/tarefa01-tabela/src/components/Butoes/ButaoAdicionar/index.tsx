@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './modalform.css'
 import { api } from '../../../utils/api';
+import { Tabela } from '../../Tabela';
+
 
 export const ButaoAdicionar = () => {
 
   const [nome, setNome] = useState('')
   const [quantidade, setQuantidade] = useState('')
+  const [remedios, setRemedios] = useState([])
 
   const [mostra, setMostrar] = useState(false);
 
@@ -20,8 +23,25 @@ export const ButaoAdicionar = () => {
       quantidade: quantidade
     }
 
+    if(nome === '' || quantidade === ''){
+      alert('preencha todas as informaçoes corretamente')
+      return
+    }
+
     await api.post("/remedios", corpo);
+    setMostrar(false)
   }
+
+  const carregarRemedios = async () => {
+    const responseAxios = await api.get("/remedios");
+    const remediosApi = responseAxios.data
+    
+    setRemedios(remediosApi);
+  }
+
+  useEffect( () => {
+    carregarRemedios()
+  }, [])
   return (
     <>
       <Button className='ms-2' variant="primary" onClick={handleShow}>
@@ -58,6 +78,23 @@ export const ButaoAdicionar = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Tabela>
+          <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+              </tr>
+           </thead>
+           <tbody>
+              {remedios.map((remedio: Remedios, index) => (
+                <tr key={index}>
+                 <td>{remedio.nome}</td>
+                 <td>{remedio.quantidade}</td>
+                </tr>
+               ))}
+            </tbody>
+       </Tabela>
     </>
   );
 }

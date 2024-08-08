@@ -1,7 +1,7 @@
 
 import { Container } from "./components/Conteiner"
 import { Menu } from "./components/Menu"
-import { Users } from "./pages/Users"
+import { Users } from "./pages/Remedios"
 
 
 function App() {
