@@ -6,11 +6,12 @@ import { Tabela } from "../../components/Tabela"
 import { TrParaBotao } from "../../components/TrParaBotao"
 
 export const Users = () =>{
+
     return(
         <>
             <section>
                 <ContentHeader title="Banco de Remedios 🧑‍⚕️"/>
-                <ButaoAdicionar />
+                <ButaoAdicionar/>
                 <Tabela>
                 <thead>
                     <tr>

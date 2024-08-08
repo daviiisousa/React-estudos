@@ -1,5 +1,14 @@
 {
-    "remedios": [
-        
-    ]
+  "remedios": [
+    {
+      "id": "f82e",
+      "nome": "dipirona",
+      "quantidade": "5"
+    },
+    {
+      "id": "aecc",
+      "nome": "dorflex",
+      "quantidade": "4"
+    }
+  ]
 }

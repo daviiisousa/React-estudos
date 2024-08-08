@@ -2,16 +2,29 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './modalform.css'
+import { api } from '../../../utils/api';
 
 export const ButaoAdicionar = () => {
+
+  const [nome, setNome] = useState('')
+  const [quantidade, setQuantidade] = useState('')
+
   const [mostra, setMostrar] = useState(false);
 
   const handleClose = () => setMostrar(false);
   const handleShow = () => setMostrar(true);
 
+  const salvarRemedio = async () => {
+    const corpo: Remedios = {
+      nome: nome,
+      quantidade: quantidade
+    }
+
+    await api.post("/remedios", corpo);
+  }
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className='ms-2' variant="primary" onClick={handleShow}>
        Adicionar remedio a tabela
       </Button>
 
@@ -22,10 +35,16 @@ export const ButaoAdicionar = () => {
         <Modal.Body>
             <form>
                 <div>
-                    <input placeholder='nome do remedio' type="text" />
+                    <input 
+                    placeholder='nome do remedio' 
+                    type="text" 
+                    onChange={(e) => {setNome(e.target.value)}}/>
                 </div>
                 <div>
-                    <input placeholder='Qtd' type="number" />
+                    <input 
+                    placeholder='Qtd' 
+                    type="number" 
+                    onChange={(e) => {setQuantidade(e.target.value)}}/>
                 </div>
             </form>
         </Modal.Body>
@@ -33,7 +52,8 @@ export const ButaoAdicionar = () => {
           <Button variant="secondary" onClick={handleClose}>
             Fechar
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+           variant="primary" onClick={salvarRemedio}>
             Salvar
           </Button>
         </Modal.Footer>
