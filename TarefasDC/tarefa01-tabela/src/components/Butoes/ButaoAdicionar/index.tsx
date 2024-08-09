@@ -4,12 +4,13 @@ import Modal from 'react-bootstrap/Modal';
 import './modalform.css'
 import { api } from '../../../utils/api';
 import { Tabela } from '../../Tabela';
+import { ButaoApagar } from '../ButaoApagar';
 
 
 export const ButaoAdicionar = () => {
 
   const [nome, setNome] = useState('')
-  const [quantidade, setQuantidade] = useState('')
+  const [quantidade, setQuantidade] = useState(0)
   const [remedios, setRemedios] = useState([])
 
   const [mostra, setMostrar] = useState(false);
@@ -23,14 +24,17 @@ export const ButaoAdicionar = () => {
       quantidade: quantidade
     }
 
-    if(nome === '' || quantidade === ''){
+    if(nome === '' || quantidade <= 0){
       alert('preencha todas as informaçoes corretamente')
       return
     }
 
     await api.post("/remedios", corpo);
     setMostrar(false)
+
+    window.location.reload();
   }
+  
 
   const carregarRemedios = async () => {
     const responseAxios = await api.get("/remedios");
@@ -42,6 +46,7 @@ export const ButaoAdicionar = () => {
   useEffect( () => {
     carregarRemedios()
   }, [])
+
   return (
     <>
       <Button className='ms-2' variant="primary" onClick={handleShow}>
@@ -64,7 +69,7 @@ export const ButaoAdicionar = () => {
                     <input 
                     placeholder='Qtd' 
                     type="number" 
-                    onChange={(e) => {setQuantidade(e.target.value)}}/>
+                    onChange={() => {setQuantidade(quantidade + 1)}}/>
                 </div>
             </form>
         </Modal.Body>
@@ -84,6 +89,7 @@ export const ButaoAdicionar = () => {
               <tr>
                 <th>Nome</th>
                 <th>Quantidade</th>
+                <th>butoes</th>
               </tr>
            </thead>
            <tbody>
@@ -91,6 +97,7 @@ export const ButaoAdicionar = () => {
                 <tr key={index}>
                  <td>{remedio.nome}</td>
                  <td>{remedio.quantidade}</td>
+                 <td><ButaoApagar /></td>
                 </tr>
                ))}
             </tbody>

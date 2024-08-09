@@ -1,8 +1,20 @@
+import { api } from "../../../utils/api";
+
 export const ButaoApagar = () =>{
+
+    
+  const apagarRemedio = async () => {
+
+    await api.delete("/remedios",);
+
+    window.location.reload();
+
+  };
+
     return(
         <>
             <button 
-            onClick={() => {alert('Pedido desfeito')}}
+            onClick={() => {apagarRemedio}}
             className="btn btn-danger">Apagar</button>
         </>
     )
