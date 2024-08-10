@@ -59,17 +59,21 @@ export const ButaoAdicionar = () => {
         </Modal.Header>
         <Modal.Body>
             <form>
-                <div>
-                    <input 
+                <div id='divForm'>
+                    <label htmlFor="nome">Nome</label>
+                    <input
+                    id='nome' 
                     placeholder='nome do remedio' 
                     type="text" 
                     onChange={(e) => {setNome(e.target.value)}}/>
                 </div>
-                <div>
-                    <input 
+                <div id='divForm'>
+                    <label htmlFor="quantidade">Quantidade</label>
+                    <input
+                    id='quantidade' 
                     placeholder='Qtd' 
                     type="number" 
-                    onChange={() => {setQuantidade(quantidade + 1)}}/>
+                    onChange={(e) => {setQuantidade(parseInt(e.target.value))}}/>
                 </div>
             </form>
         </Modal.Body>

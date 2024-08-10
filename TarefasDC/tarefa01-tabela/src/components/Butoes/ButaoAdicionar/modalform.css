@@ -1,0 +1,13 @@
+input{
+    width: 100%;
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+div#divForm{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
