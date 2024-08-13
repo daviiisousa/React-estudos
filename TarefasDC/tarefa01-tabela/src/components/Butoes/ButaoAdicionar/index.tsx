@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 import './modalform.css'
 import { api } from '../../../utils/api';
 import { Tabela } from '../../Tabela';
-import { ButaoApagar } from '../ButaoApagar';
 
 
 export const ButaoAdicionar = () => {
@@ -35,14 +34,19 @@ export const ButaoAdicionar = () => {
     window.location.reload();
   }
   
-
   const carregarRemedios = async () => {
     const responseAxios = await api.get("/remedios");
     const remediosApi = responseAxios.data
     
     setRemedios(remediosApi);
   }
+  const removerRemedio = async (id: number | undefined) => {
+    const remediosParaRemover = remedios.filter((remedio: Remedios) => remedio.id !== id);
+    setRemedios(remediosParaRemover);
 
+    await api.post("/remedios", remediosParaRemover);
+  };
+  
   useEffect( () => {
     carregarRemedios()
   }, [])
@@ -97,11 +101,11 @@ export const ButaoAdicionar = () => {
               </tr>
            </thead>
            <tbody>
-              {remedios.map((remedio: Remedios, index) => (
-                <tr key={index}>
+              {remedios.map((remedio: Remedios) => (
+                <tr key={remedio.id}>
                  <td>{remedio.nome}</td>
                  <td>{remedio.quantidade}</td>
-                 <td><ButaoApagar /></td>
+                 <td> <button className="btn btn-danger" onClick={() => removerRemedio(remedio.id)} >remover</button> </td>
                 </tr>
                ))}
             </tbody>

@@ -1,4 +1,5 @@
 declare type Remedios ={
     nome: string,
-    quantidade: number
+    quantidade: number,
+    id?: number 
 }
