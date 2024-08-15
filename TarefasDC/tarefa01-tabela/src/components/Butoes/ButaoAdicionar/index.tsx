@@ -10,7 +10,7 @@ export const ButaoAdicionar = () => {
 
   const [nome, setNome] = useState('')
   const [quantidade, setQuantidade] = useState(0)
-  const [remedios, setRemedios] = useState([])
+  const [remedios, setRemedios] = useState<Remedios[]>([]);
 
   const [mostra, setMostrar] = useState(false);
 
@@ -40,11 +40,14 @@ export const ButaoAdicionar = () => {
     
     setRemedios(remediosApi);
   }
-  const removerRemedio = async (id: number | undefined) => {
-    const remediosParaRemover = remedios.filter((remedio: Remedios) => remedio.id !== id);
-    setRemedios(remediosParaRemover);
 
-    await api.post("/remedios", remediosParaRemover);
+  const removerRemedio = async (remedio: Remedios) => {
+    await api.delete(`/remedios/${remedio.id}`)
+    
+    const remediosAtualizados = remedios.filter(r => r.id !== remedio.id);
+
+    setRemedios(remediosAtualizados);
+
   };
   
   useEffect( () => {
@@ -105,7 +108,7 @@ export const ButaoAdicionar = () => {
                 <tr key={remedio.id}>
                  <td>{remedio.nome}</td>
                  <td>{remedio.quantidade}</td>
-                 <td> <button className="btn btn-danger" onClick={() => removerRemedio(remedio.id)} >remover</button> </td>
+                 <td> <button className="btn btn-danger" onClick={() => removerRemedio(remedio)} >remover</button> </td>
                 </tr>
                ))}
             </tbody>
