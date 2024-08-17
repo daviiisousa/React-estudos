@@ -6,8 +6,23 @@ label{
     margin-bottom: 5px;
 }
 
-div#divForm{
+div.divForm{
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
+}
+
+td{
+    max-width: 250px;
+}
+
+p{
+    background-color: rgb(224, 223, 223);
+    max-width: 350px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: none;
+    text-align: start;
+    word-wrap: break-word;
+    white-space: normal;
 }

@@ -10,6 +10,7 @@ export const ButaoAdicionar = () => {
 
   const [nome, setNome] = useState('')
   const [quantidade, setQuantidade] = useState(0)
+  const [descricao, setDescricao] = useState('')
   const [remedios, setRemedios] = useState<Remedios[]>([]);
 
   const [mostra, setMostrar] = useState(false);
@@ -20,10 +21,11 @@ export const ButaoAdicionar = () => {
   const salvarRemedio = async () => {
     const corpo: Remedios = {
       nome: nome,
-      quantidade: quantidade
+      quantidade: quantidade,
+      descrição: descricao
     }
 
-    if(nome === '' || quantidade <= 0){
+    if(nome === '' || quantidade <= 0 || descricao === ''){
       alert('preencha todas as informaçoes corretamente')
       return
     }
@@ -66,7 +68,7 @@ export const ButaoAdicionar = () => {
         </Modal.Header>
         <Modal.Body>
             <form>
-                <div id='divForm'>
+                <div className='divForm'>
                     <label htmlFor="nome">Nome</label>
                     <input
                     id='nome' 
@@ -74,13 +76,21 @@ export const ButaoAdicionar = () => {
                     type="text" 
                     onChange={(e) => {setNome(e.target.value)}}/>
                 </div>
-                <div id='divForm'>
+                <div className='divForm'>
                     <label htmlFor="quantidade">Quantidade</label>
                     <input
                     id='quantidade' 
                     placeholder='Qtd' 
                     type="number" 
                     onChange={(e) => {setQuantidade(parseInt(e.target.value))}}/>
+                </div>
+                <div className='divForm'>
+                    <label htmlFor="descricao">Descrição</label>
+                    <input
+                    id='descricao' 
+                    placeholder='Descrição' 
+                    type="text" 
+                    onChange={(e) => {setDescricao(e.target.value)}}/>
                 </div>
             </form>
         </Modal.Body>
@@ -100,6 +110,7 @@ export const ButaoAdicionar = () => {
               <tr>
                 <th>Nome</th>
                 <th>Quantidade</th>
+                <th>Descrição</th>
                 <th>butoes</th>
               </tr>
            </thead>
@@ -108,6 +119,7 @@ export const ButaoAdicionar = () => {
                 <tr key={remedio.id}>
                  <td>{remedio.nome}</td>
                  <td>{remedio.quantidade}</td>
+                 <td id='tdDescricao'><p>{remedio.descrição}</p></td>
                  <td> <button className="btn btn-danger" onClick={() => removerRemedio(remedio)} >remover</button> </td>
                 </tr>
                ))}
