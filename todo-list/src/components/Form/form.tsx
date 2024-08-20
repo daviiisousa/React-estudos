@@ -2,8 +2,11 @@ import { useState } from "react"
 
 export const Form = () => {
     const [tarefa, setTarefa] = useState('')
+    console.log(tarefa);
+    
     const [descricao, setDescricao] = useState('')
-
+    console.log(descricao);
+    
     return(
         <>
             <div className="px-28 py-14 bg-blue-800">
