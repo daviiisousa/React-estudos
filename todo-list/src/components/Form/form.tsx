@@ -1,31 +1,51 @@
 import { useState } from "react"
 
-type TarefasProps = {
-    tarefa: string
-}
-export const Form = () =>{
-    const [tarefas, setTarefas] = useState('')
-    const [todasAsTarefas, setTodasAsTarefas] = useState<TarefasProps[]>([])
+export const Form = () => {
+    const [tarefa, setTarefa] = useState('')
+    const [descricao, setDescricao] = useState('')
 
-    const salvarTarefas = () =>{
-       
-    }
-    
     return(
         <>
-            <div>
-                <form className=" bg-blue-700 p-8 items-center gap-3 grid grid-cols-1">
-                    <label className="text-7xl text-center text-white" htmlFor="tarefas">Tarefas</label>
-                    <input
-                    className="rounded-md"
-                    id="tarefas"
-                    name="tarefas"
-                    type="text"
-                    onChange={(e) => setTarefas(e.target.value)} />
+            <div className="px-28 py-14 bg-blue-800">
+                <form className="grid grid-cols-2 gap-5" >
+                    <div className="grid gap-3">
+                        <label
+                        className="text-4xl text-white"
+                        htmlFor="tarefa">
+                            Tarefa
+                        </label>
+                        <input
+                        type="text"
+                        placeholder="Digite sua tarefa"
+                        className="rounded-md px-5 py-1 w-[100%] col-span-3"
+                        name="tarefa"
+                        id="tarefa"
+                        onChange={(e) => setTarefa(e.target.value)}/>
+                        <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+                    </div>
+
+                    <div className="grid gap-3">
+                        <label
+                        className="text-4xl text-white"
+                        htmlFor="descricao">
+                            Descrição
+                        </label>
+                        <input
+                        type="text"
+                        placeholder="Descreva sua tarefa"
+                        className="rounded-md px-5 py-1 w-[100%] col-span-3"
+                        name="descricao"
+                        id="descricao"
+                        onChange={(e) => setDescricao(e.target.value)}/>
+                        <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+                    </div>
                 </form>
-                <section className=" bg-blue-700">
-                    <div className="bg-blue-400 h-96 mx-14 "></div>
-                </section>
+
+                <div className="bg-blue-900 p-16 rounded-md my-10">
+                    <section>
+                        
+                    </section>
+                </div>
             </div>
         </>
     )
