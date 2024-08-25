@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../../utils/api";
+import Swal from "sweetalert2";
 
 export const Form = () => {
   const [tarefa, setTarefa] = useState("");
@@ -14,9 +15,13 @@ export const Form = () => {
       descricao: descricao,
     };
 
-    if(tarefa == '' || descricao == ''){
-      alert('Porfavor digite uma tarefa invalida')
-      return
+    if (tarefa == "" || descricao == "") {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Porfavor digite uma tarefa valida!",
+      });
+      return;
     }
 
     await api.post("/tarefas", payload);
@@ -29,6 +34,13 @@ export const Form = () => {
     const dataTarefa = responseTarefas.data;
 
     setTarefas(dataTarefa);
+  };
+
+  const apagarTarefa = async (tarefa: tarefas) => {
+    await api.delete(`/tarefas/${tarefa.id}`);
+    const TarefaDeletada = tarefas.filter((r) => r.id !== tarefa.id);
+
+    setTarefas(TarefaDeletada);
   };
 
   useEffect(() => {
@@ -83,14 +95,40 @@ export const Form = () => {
             Enviar
           </button>
         </div>
-
+        <div className=" grid grid-cols-2 gap-5 ">
+          <div className="bg-blue-950  m-4 text-center w-[450px] mx-auto py-3 rounded-xl">
+            <p className="text-xl text-blue-200">
+              Total de tarefas: {tarefas.length}
+            </p>
+          </div>
+          <div className="bg-blue-950  m-4 text-center w-[450px] mx-auto py-3 rounded-xl">
+            <p className="text-xl text-blue-200">Em breve...</p>
+          </div>
+        </div>
         <div className="bg-blue-900 p-16 rounded-md my-10">
           <section>
             {tarefas.map((tarefa) => (
-                <div className="bg-white m-4 py-2 px-3 rounded-md" key={tarefa.id}>
-                    <h5 className="text-5xl mb-3">{tarefa.tarefa}</h5>
-                    <p className="text-xl bg-blue-300 p-3 rounded-md w-[100%]">{tarefa.descricao}</p>
+              <div
+                className="bg-white m-4 py-2 px-3 rounded-md grid grid-cols-3"
+                key={tarefa.id}
+              >
+                <h5 className="text-5xl mb-3">{tarefa.tarefa}</h5>
+                <div className="flex gap-3 justify-end col-span-2">
+                  <button>
+                    <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md">
+                      check
+                    </span>
+                  </button>
+                  <button onClick={() => apagarTarefa(tarefa)}>
+                    <span className="material-symbols-outlined bg-red-600 p-2 text-white rounded-md">
+                      delete
+                    </span>
+                  </button>
                 </div>
+                <p className="text-xl bg-blue-300 p-3 rounded-md w-[100%] col-span-3">
+                  {tarefa.descricao}
+                </p>
+              </div>
             ))}
           </section>
         </div>
