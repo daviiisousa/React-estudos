@@ -47,6 +47,13 @@ export const Form = () => {
     carregarTarefas();
   }, []);
 
+    const dataAtual = new Date();
+    const dia = dataAtual.getDate();
+    const mes = dataAtual.getMonth() + 1;
+    const ano = dataAtual.getFullYear();
+  
+    const dataFormatada = `${dia}/0${mes}/${ano}`;
+
   return (
     <>
       <div className="px-28 py-14 bg-blue-800">
@@ -113,7 +120,8 @@ export const Form = () => {
                 key={tarefa.id}
               >
                 <h5 className="text-5xl mb-3">{tarefa.tarefa}</h5>
-                <div className="flex gap-3 justify-end col-span-2">
+                <div className="flex gap-3 justify-end col-span-2 items-center">
+                <p>{dataFormatada}</p>
                   <button>
                     <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md">
                       check
