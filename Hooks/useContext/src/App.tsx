@@ -11,7 +11,7 @@ function App() {
     <>
     <BrowserRouter>
      <TemaProvider>
-     <header>
+     <header className="bg-green-500">
       <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
