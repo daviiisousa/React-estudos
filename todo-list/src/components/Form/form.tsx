@@ -1,58 +1,16 @@
-import { useEffect, useState } from "react";
-import { api } from "../../utils/api";
-import Swal from "sweetalert2";
+import { useContext } from "react";
+import { FormContext } from "../../context/FormContext";
 
 export const Form = () => {
-  const [tarefa, setTarefa] = useState("");
+  const { apagarTarefa, salvarTarefa, setDescricao, setTarefa, tarefas } =
+    useContext(FormContext);
 
-  const [descricao, setDescricao] = useState("");
+  const dataAtual = new Date();
+  const dia = dataAtual.getDate();
+  const mes = dataAtual.getMonth() + 1;
+  const ano = dataAtual.getFullYear();
 
-  const [tarefas, setTarefas] = useState<tarefas[]>([]);
-
-  const salvarTarefa = async () => {
-    const payload: tarefas = {
-      tarefa: tarefa,
-      descricao: descricao,
-    };
-
-    if (tarefa == "" || descricao == "") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Porfavor digite uma tarefa valida!",
-      });
-      return;
-    }
-
-    await api.post("/tarefas", payload);
-
-    window.location.reload();
-  };
-
-  const carregarTarefas = async () => {
-    const responseTarefas = await api.get("/tarefas");
-    const dataTarefa = responseTarefas.data;
-
-    setTarefas(dataTarefa);
-  };
-
-  const apagarTarefa = async (tarefa: tarefas) => {
-    await api.delete(`/tarefas/${tarefa.id}`);
-    const TarefaDeletada = tarefas.filter((r) => r.id !== tarefa.id);
-
-    setTarefas(TarefaDeletada);
-  };
-
-  useEffect(() => {
-    carregarTarefas();
-  }, []);
-
-    const dataAtual = new Date();
-    const dia = dataAtual.getDate();
-    const mes = dataAtual.getMonth() + 1;
-    const ano = dataAtual.getFullYear();
-  
-    const dataFormatada = `${dia}/0${mes}/${ano}`;
+  const dataFormatada = `${dia}/0${mes}/${ano}`;
 
   return (
     <>
@@ -121,7 +79,7 @@ export const Form = () => {
               >
                 <h5 className="text-5xl mb-3">{tarefa.tarefa}</h5>
                 <div className="flex gap-3 justify-end col-span-2 items-center">
-                <p>{dataFormatada}</p>
+                  <p>{dataFormatada}</p>
                   <button>
                     <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md">
                       check

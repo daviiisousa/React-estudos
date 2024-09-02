@@ -28,7 +28,7 @@ export const Footer = () => {
           </div>
           <div>
             <a href="https://github.com/daviiisousa" target="_blank">
-              <img className="w-[75px] " src={github} />
+              <img className="w-[75px] bg-white rounded-[50%] " src={github} />
             </a>
           </div>
           <div>
