@@ -15,11 +15,11 @@ export const Headear = () => {
             </span>
           </div>
           <div>
-            <ul className="flex gap-5">
-              <li className="text-white text-xl">
+            <ul className="flex gap-6">
+              <li className="text-white text-xl hover:bg-blue-600 hover:px-2 rounded-md hover:py-1 transition-all">
                 <NavLink to={"/"}>Form</NavLink>
               </li>
-              <li className="text-white text-xl">
+              <li className="text-white text-xl hover:bg-blue-600 hover:px-2 rounded-md hover:py-1 transition-all">
                 <NavLink to={"/Home"}>Home</NavLink>
               </li>
             </ul>

@@ -54,7 +54,7 @@ export const Form = () => {
         </form>
         <div className="flex justify-center mt-6">
           <button
-            className="bg-white px-9 py-3 rounded-md w-[50%] text-xl font-semibold"
+            className="bg-slate-50 px-9 py-3 rounded-md w-[50%] text-xl font-semibold hover:bg-slate-200 hover:text-3xl transition-all"
             onClick={salvarTarefa}
           >
             Enviar
@@ -74,19 +74,19 @@ export const Form = () => {
           <section>
             {tarefas.map((tarefa) => (
               <div
-                className="bg-white m-4 py-2 px-3 rounded-md grid grid-cols-3"
+                className="bg-white m-4 py-2 px-3 rounded-md grid grid-cols-3 hover:p-8  transition-all"
                 key={tarefa.id}
               >
-                <h5 className="text-5xl mb-3">{tarefa.tarefa}</h5>
+                <h5 className="text-5xl mb-3 font-medium">{tarefa.tarefa}</h5>
                 <div className="flex gap-3 justify-end col-span-2 items-center">
                   <p>{dataFormatada}</p>
                   <button>
-                    <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md">
+                    <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md hover:bg-green-700 transition">
                       check
                     </span>
                   </button>
                   <button onClick={() => apagarTarefa(tarefa)}>
-                    <span className="material-symbols-outlined bg-red-600 p-2 text-white rounded-md">
+                    <span className="material-symbols-outlined bg-red-600 p-2 text-white rounded-md hover:bg-red-700 transition">
                       delete
                     </span>
                   </button>
