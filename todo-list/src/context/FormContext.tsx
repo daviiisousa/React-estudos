@@ -15,6 +15,7 @@ type FormContextProps = {
   apagarTarefa: (tarefa: tarefas) => Promise<void>;
   setTarefa: Dispatch<SetStateAction<string>>;
   setDescricao: Dispatch<SetStateAction<string>>;
+  setData: Dispatch<SetStateAction<number>>;
 };
 
 export const FormContext = createContext<FormContextProps>(
@@ -26,12 +27,16 @@ export const FormProvider = ({ children }: children) => {
 
   const [descricao, setDescricao] = useState("");
 
+  const [data, setData] = useState(Number)
+  console.log(data)
+
   const [tarefas, setTarefas] = useState<tarefas[]>([]);
 
   const salvarTarefa = async () => {
     const payload: tarefas = {
       tarefa: tarefa,
       descricao: descricao,
+      data: data
     };
 
     if (tarefa == "" || descricao == "") {
@@ -73,6 +78,7 @@ export const FormProvider = ({ children }: children) => {
     salvarTarefa,
     setTarefa,
     setDescricao,
+    setData
   };
 
   return <FormContext.Provider value={valor}>{children}</FormContext.Provider>;

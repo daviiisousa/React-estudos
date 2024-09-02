@@ -2,20 +2,13 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 
 export const Form = () => {
-  const { apagarTarefa, salvarTarefa, setDescricao, setTarefa, tarefas } =
+  const { apagarTarefa, salvarTarefa, setDescricao, setTarefa, tarefas, setData } =
     useContext(FormContext);
-
-  const dataAtual = new Date();
-  const dia = dataAtual.getDate();
-  const mes = dataAtual.getMonth() + 1;
-  const ano = dataAtual.getFullYear();
-
-  const dataFormatada = `${dia}/0${mes}/${ano}`;
 
   return (
     <>
       <div className="px-28 py-14 bg-blue-800">
-        <form className="grid grid-cols-2 gap-5">
+        <form className="grid grid-cols-3 gap-5">
           <div className="grid gap-3">
             <label
               className="text-4xl text-white font-semibold"
@@ -51,6 +44,23 @@ export const Form = () => {
             />
             <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
           </div>
+
+          <div className="grid gap-3">
+            <label
+              className="text-4xl text-white font-semibold"
+              htmlFor="data"
+            >
+              Data
+            </label>
+            <input
+              type="date"
+              className="rounded-md px-5 py-1 w-[100%] col-span-3"
+              name="data"
+              id="data"
+              onChange={(e) => setData(parseInt(e.target.value))}
+            />
+            <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+          </div>
         </form>
         <div className="flex justify-center mt-6">
           <button
@@ -79,7 +89,7 @@ export const Form = () => {
               >
                 <h5 className="text-5xl mb-3 font-medium">{tarefa.tarefa}</h5>
                 <div className="flex gap-3 justify-end col-span-2 items-center">
-                  <p>{dataFormatada}</p>
+                  <p>{tarefa.data }</p>
                   <button>
                     <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md hover:bg-green-700 transition">
                       check
