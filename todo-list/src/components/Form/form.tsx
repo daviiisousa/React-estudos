@@ -1,21 +1,24 @@
 import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
+import { DivForm } from "../DivForm/DivForm";
+import { LabelForm } from "../LabelForm/LabelForm";
 
 export const Form = () => {
-  const { apagarTarefa, salvarTarefa, setDescricao, setTarefa, tarefas, setData } =
-    useContext(FormContext);
+  const {
+    apagarTarefa,
+    salvarTarefa,
+    setDescricao,
+    setTarefa,
+    tarefas,
+    setData,
+  } = useContext(FormContext);
 
   return (
     <>
       <div className="px-28 py-14 bg-blue-800">
         <form className="grid grid-cols-3 gap-5">
-          <div className="grid gap-3">
-            <label
-              className="text-4xl text-white font-semibold"
-              htmlFor="tarefa"
-            >
-              Tarefa
-            </label>
+          <DivForm>
+            <LabelForm htmlFor="tarefa">Tarefa</LabelForm>
             <input
               type="text"
               placeholder="Digite sua tarefa"
@@ -25,15 +28,10 @@ export const Form = () => {
               onChange={(e) => setTarefa(e.target.value)}
             />
             <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
-          </div>
+          </DivForm>
 
-          <div className="grid gap-3">
-            <label
-              className="text-4xl text-white font-semibold"
-              htmlFor="descricao"
-            >
-              Descrição
-            </label>
+          <DivForm>
+            <LabelForm htmlFor="descricao">Descrição</LabelForm>
             <input
               type="text"
               placeholder="Descreva sua tarefa"
@@ -43,15 +41,10 @@ export const Form = () => {
               onChange={(e) => setDescricao(e.target.value)}
             />
             <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
-          </div>
+          </DivForm>
 
-          <div className="grid gap-3">
-            <label
-              className="text-4xl text-white font-semibold"
-              htmlFor="data"
-            >
-              Data
-            </label>
+          <DivForm>
+            <LabelForm htmlFor="data">Data</LabelForm>
             <input
               type="date"
               className="rounded-md px-5 py-1 w-[100%] col-span-3"
@@ -60,7 +53,7 @@ export const Form = () => {
               onChange={(e) => setData(parseInt(e.target.value))}
             />
             <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
-          </div>
+          </DivForm>
         </form>
         <div className="flex justify-center mt-6">
           <button
@@ -89,7 +82,7 @@ export const Form = () => {
               >
                 <h5 className="text-5xl mb-3 font-medium">{tarefa.tarefa}</h5>
                 <div className="flex gap-3 justify-end col-span-2 items-center">
-                  <p>{tarefa.data }</p>
+                  <p>{tarefa.data}</p>
                   <button>
                     <span className="material-symbols-outlined bg-green-600 p-2 text-white rounded-md hover:bg-green-700 transition">
                       check
