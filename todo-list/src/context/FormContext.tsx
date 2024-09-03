@@ -39,7 +39,7 @@ export const FormProvider = ({ children }: children) => {
       data: data
     };
 
-    if (tarefa == "" || descricao == "") {
+    if (tarefa == "" || descricao == "" || data <= 0) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
