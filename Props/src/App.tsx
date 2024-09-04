@@ -2,9 +2,13 @@ import { Wellcome } from "./components/Wellcome"
 
 function App() {
 
+  const bemVindo = () => {
+    alert(`ola `);
+  };
+
   return (
     <>
-     <Wellcome name='antonio' age={18} />
+     <Wellcome onClick={bemVindo} />
     </>
   )
 }
