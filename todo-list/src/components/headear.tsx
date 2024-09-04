@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "../../index.css";
+import "../index.css";
 
 export const Headear = () => {
   return (

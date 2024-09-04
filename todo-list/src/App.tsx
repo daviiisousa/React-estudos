@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Form } from "./components/Form/form";
-import { Headear } from "./components/Headear/headear";
+import { Form } from "./components/form";
+import { Headear } from "./components/headear";
 import { Home } from "./pages/Home";
-import { Footer } from "./components/Footer/Footer";
+import { Footer } from "./components/Footer";
 import { FormProvider } from "./context/FormContext";
 
 function App() {

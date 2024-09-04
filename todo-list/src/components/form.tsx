@@ -1,7 +1,9 @@
 import { useContext } from "react";
-import { FormContext } from "../../context/FormContext";
-import { DivForm } from "../DivForm/DivForm";
-import { LabelForm } from "../LabelForm/LabelForm";
+import { FormContext } from "../context/FormContext";
+import { DivForm } from "./Divs/DivForm";
+import { LabelForm } from "./LabelForm";
+import { InputForm } from "./InputForm";
+import { DivFormDetalhe } from "./Divs/DivFormDetalhe";
 
 export const Form = () => {
   const {
@@ -19,40 +21,37 @@ export const Form = () => {
         <form className="grid grid-cols-3 gap-5">
           <DivForm>
             <LabelForm htmlFor="tarefa">Tarefa</LabelForm>
-            <input
-              type="text"
-              placeholder="Digite sua tarefa"
-              className="rounded-md px-5 py-1 w-[100%] col-span-3"
-              name="tarefa"
+            <InputForm
               id="tarefa"
+              placeholder="digite sua tarefa"
+              name="tarefa"
+              type="text"
               onChange={(e) => setTarefa(e.target.value)}
             />
-            <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+            <DivFormDetalhe />
           </DivForm>
 
           <DivForm>
             <LabelForm htmlFor="descricao">Descrição</LabelForm>
-            <input
-              type="text"
-              placeholder="Descreva sua tarefa"
-              className="rounded-md px-5 py-1 w-[100%] col-span-3"
-              name="descricao"
+            <InputForm
               id="descricao"
+              placeholder="digite a descricao"
+              name="descricao"
+              type="text"
               onChange={(e) => setDescricao(e.target.value)}
             />
-            <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+            <DivFormDetalhe />
           </DivForm>
 
           <DivForm>
             <LabelForm htmlFor="data">Data</LabelForm>
-            <input
-              type="date"
-              className="rounded-md px-5 py-1 w-[100%] col-span-3"
-              name="data"
+            <InputForm
               id="data"
+              name="data"
+              type="date"
               onChange={(e) => setData(parseInt(e.target.value))}
             />
-            <div className="col-span-1 bg-yellow-500 w-60 h-0.5"></div>
+            <DivFormDetalhe />
           </DivForm>
         </form>
         <div className="flex justify-center mt-6">

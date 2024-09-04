@@ -1,7 +1,7 @@
-import facebbok from "../../assets/Facebook.svg";
-import instagra from "../../assets/Intagrem.png";
-import linkedin from "../../assets/skill-icons_linkedin.png";
-import github from "../../assets/Github Square.png";
+import facebbok from "../assets/Facebook.svg";
+import instagra from "../assets/Intagrem.png";
+import linkedin from "../assets/skill-icons_linkedin.png";
+import github from "../assets/Github Square.png";
 
 export const Footer = () => {
   return (
