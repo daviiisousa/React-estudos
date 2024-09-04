@@ -1,32 +1,22 @@
-
-import { Container } from "./components/Conteiner"
-import { Menu } from "./components/Menu"
-import { Home } from "./pages/Home";
-import { Users } from "./pages/Remedios"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Nav } from "./components/Nav";
+import { Formulario } from "./components/Formulario";
+import { Usuarios } from "./components/Usuarios";
 
-
-function App() {
-
+export default function App() {
   return (
     <>
-    <BrowserRouter>
-      <Container>
-
+      <BrowserRouter>
         <header>
-          <Menu />
+          <Nav />
         </header>
-        <main>
+        <main className="px-12 py-5  h-screen">
           <Routes>
-            <Route path="/" element={<Users />}></Route>
-            <Route path="/Home" element={<Home />}></Route>
+            <Route path="/formulario" element={<Formulario />}></Route>
+            <Route path="/usuarios" element={<Usuarios />}></Route>
           </Routes>
-        </main> 
-        
-      </Container>
-    </BrowserRouter>
+        </main>
+      </BrowserRouter>
     </>
-  )
+  );
 }
-
-export default App
