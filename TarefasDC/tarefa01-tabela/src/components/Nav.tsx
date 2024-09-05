@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { LiNav } from "./LiNav";
+import { CircleUserRound } from "lucide-react";
 
 
 export const Nav = () => {
@@ -9,12 +10,12 @@ export const Nav = () => {
         <NavLink to={"/"}>
           <h1 className="text-5xl font-bold text-white">Caps</h1>
         </NavLink>
-        <ul className="flex gap-5 text-lg text-white ">
-          <NavLink to={"/formulario"}>
-            <LiNav>Formulario</LiNav>
+        <ul className="flex gap-5 text-lg items-center text-white ">
+          <NavLink to={"/remedios"}>
+            <LiNav>Remedios</LiNav>
           </NavLink>
           <NavLink to={"/usuarios"}>
-            <LiNav>Usuarios</LiNav>
+            <LiNav><CircleUserRound size={40} /></LiNav>
           </NavLink>
         </ul>
       </nav>
