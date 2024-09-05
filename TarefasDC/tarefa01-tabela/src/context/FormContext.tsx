@@ -24,10 +24,12 @@ type FormContextProps = {
   quantidade: number;
   salvarRemedio: () => Promise<void>;
   carregarRemedio: () => Promise<void>;
+  apagarRemedio: (remedio: Remedios) => Promise<void>;
   remedios: Remedios[];
   setRemedio: Dispatch<SetStateAction<string>>;
   setQuantidade: Dispatch<SetStateAction<number>>;
   setDescricao: Dispatch<SetStateAction<string>>;
+  setRemedios: Dispatch<SetStateAction<Remedios[]>>
 };
 
 export const FormContext = createContext<FormContextProps>(
@@ -70,6 +72,13 @@ export const FormProvider = ({ children }: Children) => {
     setRemedios(dataRemedio);
   };
 
+  const apagarRemedio = async (remedio: Remedios) => {
+    await api.delete(`/remedios/${remedio.id}`);
+    const remedioDeletado = remedios.filter((r) => r.id !== remedio.id);
+
+    setRemedios(remedioDeletado);
+  };
+
   useEffect(() => {
     carregarRemedio();
   }, []);
@@ -83,6 +92,8 @@ export const FormProvider = ({ children }: Children) => {
     setQuantidade,
     setRemedio,
     setDescricao,
+    setRemedios,
+    apagarRemedio
   };
 
   return (

@@ -1,8 +1,9 @@
 import { useContext } from "react"
 import { FormContext } from "../context/FormContext"
+import { Trash2 } from "lucide-react"
 
 export const Tabela = () => {
-    const {remedios} = useContext(FormContext)
+    const {remedios, apagarRemedio} = useContext(FormContext)
     return(
         <section className="my-3">
           <div className="overflow-x-auto">
@@ -12,6 +13,7 @@ export const Tabela = () => {
                   <th className="py-2 px-4 text-left">Remedios</th>
                   <th className="py-2 px-4 text-left">Quantidade</th>
                   <th className="py-2 px-4 text-left">Descrição</th>
+                  <th className="py-2 px-4 text-left">Açoes</th>
                 </tr>
               </thead>
               <tbody>
@@ -20,6 +22,7 @@ export const Tabela = () => {
                     <td className="py-2 px-4">{remedio.remedio}</td>
                     <td className="py-2 px-4">{remedio.quantidade}</td>
                     <td className="py-2 px-4">{remedio.descricao}</td>
+                    <td className="py-2 px-4"><button onClick={() => apagarRemedio(remedio) }><Trash2 /></button></td>
                   </tr>
                 ))}
               </tbody>
