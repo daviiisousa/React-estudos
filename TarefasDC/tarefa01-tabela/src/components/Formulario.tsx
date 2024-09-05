@@ -1,41 +1,44 @@
-import { useContext} from "react";
-import { DivForm } from "./DivForm";
-import { LabelForm } from "./LabelForm";
+import { useContext } from "react";
+import { DivForm } from "./FormComponents/DivForm";
+import { LabelForm } from "./FormComponents/LabelForm";
 import { FormContext } from "../context/FormContext";
 import { Tabela } from "./Tabela";
+import { InputForm } from "./FormComponents/InputForm";
 
 export const Formulario = () => {
-  const {setQuantidade, setRemedio, salvarRemedio} = useContext(FormContext)
+  const { setQuantidade, setRemedio, salvarRemedio, setDescricao } = useContext(FormContext);
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-3">
+      <h1 className="text-4xl font-bold text-center my-5">
         Banco de Remedios👨🏻‍⚕️🏣
       </h1>
-      <form className="grid grid-cols-2 gap-3  items-center">
+      <form className="grid grid-cols-3 gap-5  items-center m-5">
         <DivForm>
           <LabelForm htmlFor="remedios">Remedio</LabelForm>
-          <input
-            className="px-3 hover:border-blue-500 border-2 rounded-md col-span-2"
-            type="text"
-            name="remedios"
+          <InputForm
             id="remedios"
-            placeholder="digite seu remedio"
+            name="remedios"
             onChange={(e) => setRemedio(e.target.value)}
+            placeholder="digite o nome do remedio"
+            type="text"
           />
+        </DivForm>
+        <DivForm>
+          <LabelForm htmlFor="descricao">Descrição</LabelForm>
+          <InputForm id="descricao" name="descricao" onChange={(e) => setDescricao(e.target.value)} placeholder="Descreva" type="text"/>
         </DivForm>
         <DivForm>
           <LabelForm htmlFor="quantidade">Quantidade</LabelForm>
-          <input
-            className="px-3 hover:border-blue-500 border-2 rounded-md col-span-2"
-            type="number"
-            name="quantidade"
+          <InputForm
             id="quantidade"
-            placeholder="Qtd"
+            name="quantidade"
             onChange={(e) => setQuantidade(parseInt(e.target.value))}
+            placeholder="Qtd"
+            type="number"
           />
         </DivForm>
         <button
-          className="bg-blue-500 text-white p-5 rounded-md col-span-2 w-[500px] m-auto text-xl font-bold"
+          className="bg-blue-500 text-white p-5 rounded-md col-span-3 w-[500px] m-auto text-xl font-bold"
           onClick={salvarRemedio}
           type="button"
         >

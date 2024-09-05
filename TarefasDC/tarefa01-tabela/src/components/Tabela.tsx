@@ -9,8 +9,9 @@ export const Tabela = () => {
             <table className="min-w-full bg-white border border-gray-300">
               <thead>
                 <tr className="bg-red-600 text-white">
-                  <th className="py-2 px-4 text-left">remedios</th>
-                  <th className="py-2 px-4 text-left">quantidade</th>
+                  <th className="py-2 px-4 text-left">Remedios</th>
+                  <th className="py-2 px-4 text-left">Quantidade</th>
+                  <th className="py-2 px-4 text-left">Descrição</th>
                 </tr>
               </thead>
               <tbody>
@@ -18,6 +19,7 @@ export const Tabela = () => {
                   <tr key={remedio.id} className="border-b">
                     <td className="py-2 px-4">{remedio.remedio}</td>
                     <td className="py-2 px-4">{remedio.quantidade}</td>
+                    <td className="py-2 px-4">{remedio.descricao}</td>
                   </tr>
                 ))}
               </tbody>

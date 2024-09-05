@@ -15,6 +15,7 @@ type Children = {
 type Remedios = {
   remedio: string;
   quantidade: number;
+  descricao: string;
   id?: number;
 };
 
@@ -26,6 +27,7 @@ type FormContextProps = {
   remedios: Remedios[];
   setRemedio: Dispatch<SetStateAction<string>>;
   setQuantidade: Dispatch<SetStateAction<number>>;
+  setDescricao: Dispatch<SetStateAction<string>>;
 };
 
 export const FormContext = createContext<FormContextProps>(
@@ -37,15 +39,18 @@ export const FormProvider = ({ children }: Children) => {
 
   const [quantidade, setQuantidade] = useState(Number);
 
+  const [descricao, setDescricao] = useState("");
+
   const [remedios, setRemedios] = useState<Remedios[]>([]);
 
   const salvarRemedio = async () => {
     const payload: Remedios = {
       quantidade: quantidade,
       remedio: remedio,
+      descricao: descricao,
     };
 
-    if (remedio === "" || quantidade <= 0) {
+    if (remedio === "" || quantidade <= 0 || descricao === "") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -77,6 +82,7 @@ export const FormProvider = ({ children }: Children) => {
     remedios,
     setQuantidade,
     setRemedio,
+    setDescricao,
   };
 
   return (
