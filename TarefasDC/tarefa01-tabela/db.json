@@ -1,40 +1,5 @@
 {
   "remedios": [
-    {
-      "id": "f82e",
-      "nome": "dipirona",
-      "quantidade": "5",
-      "descrição": "para dor de cabeça"
-    },
-    {
-      "id": "aecc",
-      "nome": "dorflex",
-      "quantidade": "4",
-      "descrição": "para dor no corpo"
-    },
-    {
-      "id": "dc57",
-      "nome": "teste",
-      "quantidade": 10,
-      "descrição": "para nauseas e dores de cabeça"
-    },
-    {
-      "id": "ea6f",
-      "nome": "teste",
-      "quantidade": 25,
-      "descrição": "ttttttttttttthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
-    },
-    {
-      "id": "b8ac",
-      "nome": "teste",
-      "quantidade": 15,
-      "descrição": "jnfb jkfgbn dnfkbnfdjnbjdfbjkhfbuiehrbuhruebhgiuvhdsjgvjhdsbvjfkbvjhgvjhsb vhfd"
-    },
-    {
-      "id": "43ce",
-      "nome": "gyufuyyu",
-      "quantidade": 8,
-      "descrição": "hgkguigyi"
-    }
+    
   ]
 }
