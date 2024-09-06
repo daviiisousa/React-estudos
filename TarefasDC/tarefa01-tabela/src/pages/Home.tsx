@@ -1,15 +1,25 @@
 import { BadgePercent, BookHeart, FlaskRound, Package2 } from "lucide-react";
 import { Carrossel } from "../components/CarroseuBootstrap";
+import { useContext } from "react";
+import { FormContext } from "../context/FormContext";
+import { NavLink } from "react-router-dom";
 
 export const Home = () => {
+    const {remedios} = useContext(FormContext)
   const images = [
     "/src/assets/carroseul/image1.jpg",
     "/src/assets/carroseul/image2.jpg",
     "/src/assets/carroseul/image3.jpg",
   ];
   return (
-    <div>
-      <div className="m-5 grid grid-cols-2">
+    <div className="m-5">
+        <div>
+            <h2 className="bg-red-700 px-5 py-3 rounded-md w-[500px] text-3xl text-red-100">{`Temos ${remedios.length} remedios disponiveis`}</h2>
+            <NavLink to={'/remedios'}>
+                <button className="bg-blue-500 px-5 py-3 rounded-md text-xl my-3 text-white">Adicionar remedio</button>
+            </NavLink>
+        </div>
+      <div className=" grid grid-cols-2">
         <div>
           <h2 className="m-3 text-4xl font-bold text-red-600">
             Caps novidades
