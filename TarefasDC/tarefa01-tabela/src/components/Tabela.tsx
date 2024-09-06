@@ -18,7 +18,7 @@ export const Tabela = () => {
               </thead>
               <tbody>
                 {remedios.map((remedio) => (
-                  <tr key={remedio.id} className="border-b">
+                  <tr key={remedio.id} className="border-2">
                     <td className="py-2 px-4">{remedio.remedio}</td>
                     <td className="py-2 px-4">{remedio.quantidade}</td>
                     <td className="py-2 px-4">{remedio.descricao}</td>

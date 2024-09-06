@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import { DivForm } from "./FormComponents/DivForm";
-import { LabelForm } from "./FormComponents/LabelForm";
+import { DivForm } from ".././components/FormComponents/DivForm";
+import { LabelForm } from ".././components/FormComponents/LabelForm";
 import { FormContext } from "../context/FormContext";
-import { Tabela } from "./Tabela";
-import { InputForm } from "./FormComponents/InputForm";
+import { Tabela } from "../components/Tabela";
+import { InputForm } from ".././components/FormComponents/InputForm";
 
 export const Formulario = () => {
   const { setQuantidade, setRemedio, salvarRemedio, setDescricao } = useContext(FormContext);
   return (
     <>
-      <h1 className="text-4xl font-bold text-center my-5">
+      <h1 className="text-4xl font-bold text-red-600 text-center my-5">
         Banco de Remedios👨🏻‍⚕️🏣
       </h1>
       <form className="grid grid-cols-3 gap-5  items-center m-5">
