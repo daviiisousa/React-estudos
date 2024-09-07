@@ -1,9 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useRef, useEffect } from "react";
 
 interface CarrosselProps {
   images: string[];
@@ -15,7 +15,7 @@ export const Carrossel: React.FC<CarrosselProps> = ({ images }) => {
 
   useEffect(() => {
     if (prevRef.current && nextRef.current) {
-      const swiperEl = document.querySelector('.swiper') as any;
+      const swiperEl = document.querySelector(".swiper") as any;
       swiperEl.swiper.params.navigation.prevEl = prevRef.current;
       swiperEl.swiper.params.navigation.nextEl = nextRef.current;
       swiperEl.swiper.navigation.init();

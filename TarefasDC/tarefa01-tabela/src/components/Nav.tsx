@@ -12,13 +12,13 @@ export const Nav = () => {
           </NavLink>
           <input
             type="text"
-            className="w-[700px] bg-white px-5 py-3 rounded-md"
+            className="w-[700px] bg-white px-5 py-2 rounded-md"
             placeholder="O que deseja encontrar?"
           />
         </div>
         <ul className="flex gap-5 text-lg items-center text-white ">
           <NavLink to={"/remedios"}>
-            <LiNav>Remedios</LiNav>
+            <LiNav>Remédios</LiNav>
           </NavLink>
           <NavLink to={"/usuarios"}>
             <LiNav>
