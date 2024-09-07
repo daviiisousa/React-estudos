@@ -24,7 +24,7 @@ export const Carrossel: React.FC<CarrosselProps> = ({ images }) => {
   }, []);
 
   return (
-    <div className="relative w-[100%] h-[400px] ">
+    <div className="relative w-[100%]  ">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
@@ -39,7 +39,7 @@ export const Carrossel: React.FC<CarrosselProps> = ({ images }) => {
             <img
               src={img}
               alt={`Slide ${index}`}
-              className="w-full h-96 object-cover rounded-lg"
+              className="w-full h-[490px] object-cover rounded-lg"
             />
           </SwiperSlide>
         ))}

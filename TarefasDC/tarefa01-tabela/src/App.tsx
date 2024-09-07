@@ -14,14 +14,14 @@ export default function App() {
         <header>
           <Nav />
         </header>
-        <main className="px-12 py-8  h-screen">
+        <main className="px-12 py-8  ">
           <Routes>
             <Route path="/remedios" element={<Formulario />}></Route>
             <Route path="/usuarios" element={<Usuarios />}></Route>
             <Route path="/" element={<Home />}></Route>
           </Routes>
         </main>
-        <Footer />
+          <Footer />
         </FormProvider>
       </BrowserRouter>
     </>
