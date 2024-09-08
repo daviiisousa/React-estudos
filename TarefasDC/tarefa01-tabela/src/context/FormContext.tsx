@@ -25,7 +25,9 @@ type FormContextProps = {
   salvarRemedio: () => Promise<void>;
   carregarRemedio: () => Promise<void>;
   apagarRemedio: (remedio: Remedios) => Promise<void>;
+  adicionatrAoCarrinho: (remedio: Remedios) => Promise<void>
   remedios: Remedios[];
+  remediosCarrinho: Remedios[]
   setRemedio: Dispatch<SetStateAction<string>>;
   setQuantidade: Dispatch<SetStateAction<number>>;
   setDescricao: Dispatch<SetStateAction<string>>;
@@ -44,6 +46,8 @@ export const FormProvider = ({ children }: Children) => {
   const [descricao, setDescricao] = useState("");
 
   const [remedios, setRemedios] = useState<Remedios[]>([]);
+
+  const [remediosCarrinho, setRemediosCarrinhos] =useState<Remedios[]>([])
 
   const salvarRemedio = async () => {
     const payload: Remedios = {
@@ -79,9 +83,24 @@ export const FormProvider = ({ children }: Children) => {
     setRemedios(remedioDeletado);
   };
 
+  const adicionatrAoCarrinho = async (remedio: Remedios) => {
+    await api.post("/remediosCarrinho", remedio)
+  }
+
+  const carregarRemedioCarrinho = async () => {
+    const responseRemedio = await api.get("/remediosCarrinho");
+    const dataRemedio = responseRemedio.data;
+
+    setRemediosCarrinhos(dataRemedio);
+  };
+
   useEffect(() => {
     carregarRemedio();
   }, []);
+
+  useEffect(() => {
+    carregarRemedioCarrinho()
+  }, [remediosCarrinho])
 
   const valor: FormContextProps = {
     remedio,
@@ -93,7 +112,9 @@ export const FormProvider = ({ children }: Children) => {
     setRemedio,
     setDescricao,
     setRemedios,
-    apagarRemedio
+    apagarRemedio,
+    adicionatrAoCarrinho,
+    remediosCarrinho
   };
 
   return (

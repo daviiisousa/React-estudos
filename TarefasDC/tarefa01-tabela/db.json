@@ -23,6 +23,38 @@
       "quantidade": 100,
       "remedio": "não sei ",
       "descricao": "não sei "
+    },
+    {
+      "id": "0204",
+      "quantidade": 100,
+      "remedio": "Prep",
+      "descricao": "contra IST"
+    }
+  ],
+  "remediosCarrinho": [
+    {
+      "id": "ba81",
+      "quantidade": 100,
+      "remedio": "não sei ",
+      "descricao": "não sei "
+    },
+    {
+      "id": "97fa",
+      "quantidade": 10,
+      "remedio": "dipirona",
+      "descricao": "para dor de cabeça"
+    },
+    {
+      "id": "59a3",
+      "quantidade": 50,
+      "remedio": "teste",
+      "descricao": "qualquer coisa"
+    },
+    {
+      "id": "0204",
+      "quantidade": 100,
+      "remedio": "Prep",
+      "descricao": "contra IST"
     }
   ]
 }

@@ -5,6 +5,7 @@ import { Usuarios } from "./pages/Usuarios";
 import { FormProvider } from "./context/FormContext";
 import { Home } from "./pages/Home";
 import { Footer } from "./components/Footer";
+import { Carrinho } from "./pages/Carrinho";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/remedios" element={<Formulario />}></Route>
             <Route path="/usuarios" element={<Usuarios />}></Route>
             <Route path="/" element={<Home />}></Route>
+            <Route path="/carrinho" element={<Carrinho />}></Route>
           </Routes>
         </main>
           <Footer />
