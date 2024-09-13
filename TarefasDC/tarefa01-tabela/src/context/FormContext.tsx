@@ -32,6 +32,7 @@ type FormContextProps = {
   setQuantidade: Dispatch<SetStateAction<number>>;
   setDescricao: Dispatch<SetStateAction<string>>;
   setRemedios: Dispatch<SetStateAction<Remedios[]>>
+  setRemediosCarrinhos: Dispatch<SetStateAction<Remedios[]>>
 };
 
 export const FormContext = createContext<FormContextProps>(
@@ -100,7 +101,7 @@ export const FormProvider = ({ children }: Children) => {
 
   useEffect(() => {
     carregarRemedioCarrinho()
-  }, [remediosCarrinho])
+  }, [])
 
   const valor: FormContextProps = {
     remedio,
@@ -114,7 +115,8 @@ export const FormProvider = ({ children }: Children) => {
     setRemedios,
     apagarRemedio,
     adicionatrAoCarrinho,
-    remediosCarrinho
+    remediosCarrinho,
+    setRemediosCarrinhos
   };
 
   return (

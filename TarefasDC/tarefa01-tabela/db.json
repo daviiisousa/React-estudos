@@ -29,6 +29,12 @@
       "quantidade": 100,
       "remedio": "Prep",
       "descricao": "contra IST"
+    },
+    {
+      "id": "b929",
+      "quantidade": 50,
+      "remedio": "remedio teste",
+      "descricao": "para testar em pessoas"
     }
   ],
   "remediosCarrinho": [
@@ -55,6 +61,12 @@
       "quantidade": 100,
       "remedio": "Prep",
       "descricao": "contra IST"
+    },
+    {
+      "id": "b929",
+      "quantidade": 50,
+      "remedio": "remedio teste",
+      "descricao": "para testar em pessoas"
     }
   ]
 }

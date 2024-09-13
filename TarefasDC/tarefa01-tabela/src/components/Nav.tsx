@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { LiNav } from "./LiNav";
-import { CircleUserRound, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 export const Nav = () => {
   return (
@@ -25,11 +25,7 @@ export const Nav = () => {
               <ShoppingCart />
             </LiNav>
           </NavLink>
-          <NavLink to={"/usuarios"}>
-            <LiNav>
-              <CircleUserRound size={40} />
-            </LiNav>
-          </NavLink>
+         
         </ul>
       </nav>
     </>
